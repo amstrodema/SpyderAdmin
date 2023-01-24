@@ -1,0 +1,41 @@
+
+       <div class="container-fluid">
+        <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+            <h6 class="mb-4 text-primary">Transactions</h6>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th class="no-wrap">Sender</th>
+                    <th class="no-wrap">Receiver</th>
+                    <th class="no-wrap">Type</th>
+                    <th class="no-wrap">Description</th>
+                    <th class="no-wrap">Network Fee</th>
+                    <th>Confirmed</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th class="bg-primary text-white no-wrap">Official</th>
+                    <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let transaction of transactions; let i=index">
+                  <td>{{i+1}}</td>
+                <td>{{transaction.senderRefCode}}</td>
+                <td>{{transaction.receiverRefCode}}</td>
+                <td>{{transaction.transactionType}}</td>
+                <td>{{transaction.transactionDesc}}</td>
+                <td>{{transaction.networkFee}}</td>
+                <td>{{transaction.isConfirmed}}</td>
+                <td>{{transaction.amount}}</td>
+                <td>{{transaction.transactionCurrency}}</td>
+                <td class="bg-primary text-white">{{transaction.isOfficial}}</td>
+                <td class="no-wrap">{{transaction.dateCreated | date}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+

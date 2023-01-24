@@ -1,0 +1,67 @@
+       <!-- Sign In Start -->
+       <div class="bg-secondary" style="overflow-y: scroll; overflow-x: hidden">
+        <div class="row pad">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="text-center" *ngIf="data == null">
+                  Create Hall
+                </h3>
+                <h3 class="text-center" *ngIf="data != null">
+                  Modify Hall
+                </h3>
+                <button type="button" class="close btn btn-danger btn-sm" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="name" [(ngModel)]="hall.name" class="form-control" placeholder="Name of Hall">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Hall Name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="clickObject" [(ngModel)]="hall.clickObject" class="form-control" placeholder="Hall Click">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Hall Click</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="hallCode" [(ngModel)]="hall.hallCode" class="form-control" placeholder="Hall Code">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Hall Code</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="number" name="cost" [(ngModel)]="hall.cost" class="form-control" placeholder="Hall Cost">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Hall Cost</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="number" name="requiredVotes" [(ngModel)]="hall.requiredVotes" class="form-control" placeholder="Required Votes">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Required Votes</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <select class="form-select form-select-sm mb-3"name="countryID"  aria-label=".form-select-sm example" [(ngModel)]="hall.countryID" required>
+                      <option value="{{country.id}}" *ngFor="let country of countries">{{country.name}}</option>
+                  </select>
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Select a Country</label>
+              </div>
+
+              <div class="mb-3">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="hall.isActive"
+                          id="flexSwitchCheckChecked" checked= {{hall.isActive}}>
+                      <label class="form-check-label" for="flexSwitchCheckChecked">Activate Hall</label>
+                  </div>
+              </div>
+<hr>
+              <div class="mb-3" *ngIf="data == null">
+                <button class="btn btn-sm btn-outline-primary" (click)="Save()" style="float: right">Save <i class="fa fa-save"></i></button>
+              </div>
+              <div class="mb-3" *ngIf="data != null">
+                <button class="btn btn-sm btn-outline-primary" (click)="Edit()" style="float: right">Modify <i class="fa fa-save"></i></button>
+              </div>
+              <hr>
+        </div>
+
+      </div>
+      <!-- Sign In End -->

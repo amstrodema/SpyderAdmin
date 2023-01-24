@@ -1,0 +1,74 @@
+
+       <div class="container-fluid">
+        <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+            <h6 class="mb-4 text-primary">Feature Groups (<span class="text-white pointer" (click)="AddGroup()">Add Group</span>)</h6>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Group No</th>
+                    <th>Active</th>
+                    <th>Staff</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let featureGroup of featureGroups; let i=index">
+                  <td>{{i+1}}</td>
+                <td class="no-wrap">{{featureGroup.name}}</td>
+                <td>{{featureGroup.code}}</td>
+                <td>{{featureGroup.groupNo}}</td>
+                <td>{{featureGroup.isActive}}</td>
+                <td>Staff</td>
+                <td><span class="text-white decor">View</span></td>
+                <td><span class="text-warning decor" (click)="EditGroup(featureGroup)">Edit</span></td>
+                <td><span class="text-danger decor">Delete</span></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+          <h6 class="mb-4 text-primary">Feature Types (<span class="text-white pointer" (click)="AddType()">Add Type</span>)</h6>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                  <th>S/N</th>
+                  <th>Name</th>
+                  <th>Desc</th>
+                  <th>Code</th>
+                  <th>Group</th>
+                  <th>Active</th>
+                  <th>Staff</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let featureType of featureTypes; let i=index">
+                <td>{{i+1}}</td>
+              <td class="no-wrap">{{featureType.name}}</td>
+              <td>{{featureType.desc}}</td>
+              <td>{{featureType.code}}</td>
+              <td>{{featureType.featureGroup}}</td>
+              <td>{{featureType.isActive}}</td>
+              <td>Staff</td>
+              <td><span class="text-white decor">View</span></td>
+              <td><span class="text-warning decor" (click)="EditType(featureType)">Edit</span></td>
+              <td><span class="text-danger decor">Delete</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,54 @@
+       <!-- Sign In Start -->
+       <div class="bg-secondary">
+        <div class="row pad">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="text-center" *ngIf="data == null">
+                  Create Parameter
+                </h3>
+                <h3 class="text-center" *ngIf="data != null">
+                  Modify Parameter
+                </h3>
+                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="name" [(ngModel)]="paramz.name" class="form-control" placeholder="Name of Parameter">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="value" [(ngModel)]="paramz.value" class="form-control" placeholder="Parameter Value">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Value</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                  <input type="text" name="code" [(ngModel)]="paramz.code" class="form-control" placeholder="Parameter Code">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Code</label>
+              </div>
+<!--
+              <div class="form-floating mb-3">
+                  <input type="file" name="hallCode" [(ngModel)]="hall.hallCode" class="form-control" placeholder="Hall Code">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Hall Code</label>
+              </div> -->
+
+              <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="paramz.isActive"
+                        id="flexSwitchCheckChecked" checked= {{paramz.isActive}}>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Activate Param</label>
+                </div>
+            </div>
+<hr>
+              <div class="mb-3" *ngIf="data == null">
+                <button class="btn btn-outline-primary" (click)="Save()" style="float: right">Save <i class="fa fa-save"></i></button>
+              </div>
+              <div class="mb-3" *ngIf="data != null">
+                <button class="btn btn-outline-primary" (click)="Edit()" style="float: right">Modify <i class="fa fa-save"></i></button>
+              </div>
+        </div>
+
+      </div>
+      <!-- Sign In End -->

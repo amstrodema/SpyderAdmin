@@ -1,0 +1,38 @@
+
+       <div class="container-fluid">
+          <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+              <h6 class="mb-4 text-primary">Countries (<span class="text-white pointer" (click)="AddCountry()">Add Country</span>)</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                      <th>S/N</th>
+                      <th>Name</th>
+                      <th>Abbrev</th>
+                      <th>Active</th>
+                      <th>Cost</th>
+                      <th>Staff</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let country of countries; let i=index">
+                    <td>{{i+1}}</td>
+                  <td class="no-wrap">{{country.name}}</td>
+                  <td>{{country.abbrv}}</td>
+                  <td>{{country.isActive}}</td>
+                  <td>Active</td>
+                  <td>Staff</td>
+                  <td><span class="text-white decor">View</span></td>
+                  <td><span class="text-warning decor" (click)="EditCountry(country)">Edit</span></td>
+                  <td><span class="text-danger decor">Delete</span></td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+

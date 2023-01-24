@@ -1,0 +1,38 @@
+
+       <div class="container-fluid">
+        <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+            <h6 class="mb-4 text-primary">Parameters (<span class="text-white pointer" (click)="AddParamz()">Add Params</span>)</h6>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Code</th>
+                    <th>Active</th>
+                    <th>Date</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parameter of parameters; let i=index">
+                  <td>{{i+1}}</td>
+                <td class="no-wrap">{{parameter.name}}</td>
+                <td>{{parameter.value}}</td>
+                <td>{{parameter.code}}</td>
+                <td>{{parameter.isActive}}</td>
+                <td>{{parameter.dateCreated | date}}</td>
+                <td><span class="text-white decor">View</span></td>
+                <td><span class="text-warning decor" (click)="EditParamz(parameter)">Edit</span></td>
+                <td><span class="text-danger decor">Delete</span></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+

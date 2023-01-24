@@ -1,0 +1,46 @@
+       <!-- Sign In Start -->
+       <div class="container-fluid">
+          <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+              <h6 class="mb-4 text-primary">Halls (<span class="text-white pointer" (click)="AddHall()">New Hall</span>)</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                      <th>S/N</th>
+                      <th>Name</th>
+                      <th>Code</th>
+                      <th>Click</th>
+                      <th>Cost</th>
+                      <th class="no-wrap">Votes Required</th>
+                      <th>Country</th>
+                      <th>Petitions</th>
+                      <th>Approved</th>
+                      <th>Active</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let hall of halls; let i=index">
+                    <td>{{i+1}}</td>
+                  <td class="no-wrap">{{hall.name}}</td>
+                  <td>{{hall.hallCode}}</td>
+                  <td>{{hall.clickObject}}</td>
+                  <td>{{hall.cost}}</td>
+                  <td>{{hall.requiredVotes}}</td>
+                  <td>{{hall.country}}</td>
+                  <td>{{hall.petitionNo}}</td>
+                  <td>{{hall.approvedNo}}</td>
+                  <td>{{hall.isActive}}</td>
+                  <td><span class="text-white decor">View</span></td>
+                  <td><span class="text-warning decor" (click)="EditHall(hall)">Edit</span></td>
+                  <td><span class="text-danger decor">Delete</span></td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+      <!-- Sign In End -->

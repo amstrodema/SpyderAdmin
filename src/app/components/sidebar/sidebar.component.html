@@ -1,0 +1,79 @@
+
+        <!-- Sidebar Start -->
+        <nav class="navbar bg-secondary navbar-dark">
+          <a [routerLink]="['/admin']" routerLinkActive="router-link-active" class="navbar-brand mx-4 mb-3">
+              <h5 class="text-primary">
+                  <img class="rounded-circle" src="/assets/images/SpyderLogo.png" alt="" style="width: 40px; height: 40px;">
+                  SPYDER
+               </h5>
+          </a>
+          <div class="d-flex align-items-center ms-4 mb-4">
+              <div class="position-relative">
+                  <img class="rounded-circle" src="/assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                  <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+              </div>
+              <div class="ms-3">
+                  <h6 class="mb-0">Jhon Doe</h6>
+                  <span>Admin</span>
+              </div>
+          </div>
+          <div class="navbar-nav w-100">
+            <a [routerLink]="['/admin']" routerLinkActive="router-link-active" class="nav-item nav-link {{dashboard}}" (click)="SetActive('dashboard')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a   [routerLink]="['/admin/account']" routerLinkActive="router-link-active" class="nav-item nav-link  {{account}}" (click)="SetActive('account')"><i class="fa fa-chart-bar me-2"></i>Account</a>
+            <a   [routerLink]="['/admin/transaction']" routerLinkActive="router-link-active" class="nav-item nav-link {{transaction}}" (click)="SetActive('transaction')"><i class="fa fa-chart-bar me-2"></i>Transaction</a>
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-inbox me-2"></i>Messaging</a>
+              <div class="dropdown-menu bg-transparent border-0">
+                  <a  [routerLink]="['/admin/broadcast']" routerLinkActive="router-link-active" class="dropdown-item">Broadcast</a>
+                  <a  [routerLink]="['/admin/complaint']" routerLinkActive="router-link-active" class="dropdown-item">Complaint</a>
+                  <a  [routerLink]="['/admin/inbox']" routerLinkActive="router-link-active" class="dropdown-item">Inbox</a>
+              </div>
+          </div>
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Moderator</a>
+              <div class="dropdown-menu bg-transparent border-0">
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Petition</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Confessions</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Death Register</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Found</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Marriage Register</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Missing</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Scammers</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Stolen</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Whistle Blower</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Users</a>
+              </div>
+          </div>
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
+              <div class="dropdown-menu bg-transparent border-0">
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">SPY</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Activation</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Bans</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Confessions</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Death Register</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Features</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Found</a>
+                  <a  [routerLink]="['/admin/hall']" routerLinkActive="router-link-active" class="dropdown-item">Hall</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Marriage Register</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Missing</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Scammers</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Stolen</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Whistle Blower</a>
+                  <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Users</a>
+              </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-pen me-2"></i>Setup</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a  [routerLink]="['/admin/country']" routerLinkActive="router-link-active" class="dropdown-item">Country</a>
+                <a  [routerLink]="['/admin/feature']" routerLinkActive="router-link-active" class="dropdown-item">Feature</a>
+                <a  [routerLink]="['/admin/hall']" routerLinkActive="router-link-active" class="dropdown-item">Hall</a>
+                <a  [routerLink]="['/admin/params']" routerLinkActive="router-link-active" class="dropdown-item">Param</a>
+            </div>
+        </div>
+              <a   [routerLink]="['/admin/task']" routerLinkActive="router-link-active" class="nav-item nav-link {{task}}" (click)="SetActive('task')"><i class="fa fa-th me-2"></i>Tasks</a>
+          </div>
+      </nav>
+      <!-- Sidebar End -->
