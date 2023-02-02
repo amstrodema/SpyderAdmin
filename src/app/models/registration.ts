@@ -15,4 +15,13 @@ export class Registration {
   password:string;
   city:string;
   isActivated: boolean;
+
+  name:string;
+  refererCode:string;
+
+  image:string
+  bio:string;
+  isShowMail:boolean;
+  showPhone:boolean;
+  showAddress:boolean;
 }

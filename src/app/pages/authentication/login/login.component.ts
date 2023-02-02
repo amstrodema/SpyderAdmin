@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
       this.loginService.Login(this.loginModel).subscribe((response: ResponseMessage) => {
         this.message = response.message;
         if (response.statusCode == 200) {
-          sessionStorage.setItem("User", JSON.stringify(response.data));
+          sessionStorage.setItem("User", JSON.stringify(response.data.user));
+          sessionStorage.setItem("Settings", JSON.stringify(response.data.settings));
+          sessionStorage.setItem("ClientSystem", JSON.stringify(response.data.clientSystem));
+
           ModelClass.CheckLoggedIn();
           //To Do: use localStorage
           //localStorage.setItem("User", JSON.stringify(response.data));

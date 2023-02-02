@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ModelClass } from '../models/modelClass';
 import { FeatureType, FeatureGroup, Feature } from '../models/missing';
+import { RequestObject } from '../models/requestObject';
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +22,44 @@ export class FeatureService {
   }
 
   PostFeatureGroup(featureGroup:FeatureGroup): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/featureGroup`, featureGroup);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = featureGroup;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/featureGroup`, requestObj);
   }
   PostFeatureType(featureType:FeatureType): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/featureType`, featureType);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = featureType;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/featureType`, requestObj);
   }
 
   PutFeatureGroup(featureGroup:FeatureGroup): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/featureGroup/`+ featureGroup.id, featureGroup);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = featureGroup;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/featureGroup/`+ featureGroup.id, requestObj);
   }
   PutFeatureType(featureType:FeatureType): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/featureType/`+ featureType.id,featureType);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = featureType;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/featureType/`+ featureType.id,requestObj);
   }
   PutFeature(feature:Feature): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/feature/`+ feature.id, feature);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = feature;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/feature/`+ feature.id, requestObj);
   }
 }
