@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ModelClass } from '../models/modelClass';
 import { Country } from '../models/country';
+import { RequestObject } from '../models/requestObject';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,20 @@ export class CountryService {
   }
 
   PostCountry(country:Country): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/country`, country);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = country;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/country`, requestObj);
   }
 
   PutCountry(country:Country): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/country/`+country.id, country);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = country;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/country/`+country.id, requestObj);
   }
 }

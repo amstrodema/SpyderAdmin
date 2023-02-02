@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ModelClass } from '../models/modelClass';
 import { Paramz } from '../models/paramz';
+import { RequestObject } from '../models/requestObject';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,20 @@ export class ParamzService {
   }
 
   PostParam(param:Paramz): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/params`, param);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = param;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/params`, requestObj);
   }
 
   PutParam(param:Paramz): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/params/`+param.id, param);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = param;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/params/`+param.id, requestObj);
   }
 }

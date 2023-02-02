@@ -41,14 +41,29 @@ export class HallService {
   }
 
   VoteHall(vote:Vote): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, vote);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = vote;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, requestObj);
   }
 
  PostHall(hall:Hall): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/hall`, hall);
+
+  let requestObj:RequestObject = ModelClass.GetRequestObject();
+  requestObj.data = hall;
+  requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/hall`, requestObj);
   }
 
  PutHall(hall:Hall): Observable<any> {
-    return this.httpClient.put(ModelClass.baseUrl+`api/hall/`+hall.id, hall);
+
+  let requestObj:RequestObject = ModelClass.GetRequestObject();
+  requestObj.data = hall;
+  requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.put(ModelClass.baseUrl+`api/hall/`+hall.id, requestObj);
   }
 }
