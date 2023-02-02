@@ -24,8 +24,13 @@
                   <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Value</label>
               </div>
 
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3" *ngIf="data == null">
                   <input type="text" name="code" [(ngModel)]="paramz.code" class="form-control" placeholder="Parameter Code">
+                  <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Code</label>
+              </div>
+
+              <div class="form-floating mb-3" *ngIf="data != null">
+                  <input type="text" name="code" [(ngModel)]="paramz.code" disabled class="form-control" placeholder="Parameter Code">
                   <label for="floatingInput" class="label" style="margin-left: 0.4em">Param Code</label>
               </div>
 <!--

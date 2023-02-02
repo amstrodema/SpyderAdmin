@@ -3,6 +3,8 @@ import { Registration } from "./registration";
 import { RequestObject } from "./requestObject";
 import { GenericModel } from "./genericModel";
 import { scriptloader } from './script-loader';
+import { Setting } from './setting';
+import { ClientSystem } from './clientSystem';
 
 
 export class ModelClass {
@@ -18,17 +20,41 @@ static prevRoute:string;
 static errorPage:string;
 static navBar:Navbar = new Navbar();
 static isLoading:boolean = false;
+static settings:Setting;
+static clientSystem:ClientSystem;
 
+static GetRequestObject(){
+  let requestObject:RequestObject = new RequestObject();
+ try {
+   requestObject.userID = ModelClass.user.id;
+   if (ModelClass.settings.isLocalRange) {
+     requestObject.countryID = ModelClass.settings.viewCountryID;
+   }
+   } catch (error) {
+
+   }
+
+   return requestObject;
+}
 
 static CheckLoggedIn(){
-  let x = JSON.parse(sessionStorage.getItem("User"));
-  if(x != null){
+  try {
+    this.user = JSON.parse(sessionStorage.getItem("User"));
+  this.settings = JSON.parse(sessionStorage.getItem("Settings"));
+  this.clientSystem = JSON.parse(sessionStorage.getItem("ClientSystem"));
+  if(this.user != null && this.settings != null && this.clientSystem != null){
     this.isLogged = true;
-    this.user = x;
 
-    this.navBar.userName = this.user.fName +" "+this.user.fName;
+    this.navBar.userName = this.user.username;
   }
   else{
+    this.user = null;
+    this.settings = null;
+    this.clientSystem = null;
+
+    this.isLogged = false;
+  }
+  } catch (error) {
     this.isLogged = false;
   }
 }
