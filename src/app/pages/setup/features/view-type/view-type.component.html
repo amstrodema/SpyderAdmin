@@ -1,0 +1,38 @@
+<div class="bg-secondary">
+
+  <div class="row pad">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h6 class="mb-4 text-primary">
+        {{featureGroup.name}} Feature Types (<span class="text-white pointer" (click)="AddType(featureGroup.id)">New Type</span>)
+      </h6>
+      <button type="button" class="close btn btn-sm btn-danger" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+  <div class="table-responsive">
+    <p *ngIf="featureTypes.length < 1" class="text-center">No {{featureGroup.name}} Feature Types Found</p>
+    <table class="table table-bordered" *ngIf="featureTypes.length > 0">
+      <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Desc</th>
+            <th></th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let featureType of featureTypes; let i=index">
+          <td>{{i+1}}</td>
+        <td class="no-wrap">{{featureType.name}}</td>
+        <td class="no-wrap">{{featureType.desc}}</td>
+        <td><span class="text-warning decor" (click)="EditType(featureType)">Edit</span></td>
+        <td><span class="text-danger decor">Delete</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</div>

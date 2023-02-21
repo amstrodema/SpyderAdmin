@@ -21,6 +21,10 @@ export class FeatureService {
     return this.httpClient.get(ModelClass.baseUrl+`api/feature`);
   }
 
+  GetFeatureTypesByGroupCode(groupCode:string): Observable<any> {
+    return this.httpClient.get(ModelClass.baseUrl+`api/FeatureType/GetFeatureTypesByGroupCode?code=`+groupCode);
+  }
+
   PostFeatureGroup(featureGroup:FeatureGroup): Observable<any> {
 
     let requestObj:RequestObject = ModelClass.GetRequestObject();

@@ -4,6 +4,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AddGroupComponent } from "./add-group/add-group.component";
 import { FeatureService } from "src/app/service/feature.service";
 import { AddTypeComponent } from "./add-type/add-type.component";
+import { ViewTypeComponent } from "./view-type/view-type.component";
 
 @Component({
   selector: "app-features",
@@ -12,24 +13,16 @@ import { AddTypeComponent } from "./add-type/add-type.component";
 })
 export class FeaturesComponent implements OnInit {
   featureGroups: FeatureGroup[] = [];
-  featureTypes: FeatureType[] = [];
 
   constructor(private modalService: NgbModal, private featureService:FeatureService) {}
 
   ngOnInit() {
     this.GetGroups();
-    this.GetTypes();
   }
 
   GetGroups(){
     this.featureService.GetFeatureGroups().subscribe((response: any) => {
       this.featureGroups = response;
-    });
-  }
-
-  GetTypes(){
-    this.featureService.GetFeatureTypes().subscribe((response: any) => {
-      this.featureTypes = response;
     });
   }
 
@@ -48,19 +41,14 @@ export class FeaturesComponent implements OnInit {
     })
   }
 
-  AddType(){
-    const modalRef = this.modalService.open(AddTypeComponent, { scrollable: true, });
 
+  ViewType(featureGroup: FeatureGroup){
+    const modalRef = this.modalService.open(ViewTypeComponent, { scrollable: true, });
+    modalRef.componentInstance.featureGroup = featureGroup;
     modalRef.result.then((result) =>{
-      this.GetTypes();
+
     })
   }
-  EditType(data){
-    const modalRef = this.modalService.open(AddTypeComponent, { scrollable: true, });
-    modalRef.componentInstance.data = data;
-    modalRef.result.then((result) =>{
-      this.GetTypes();
-    })
-  }
+
 
 }

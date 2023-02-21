@@ -4,12 +4,13 @@ import { FeaturesComponent } from './features.component';
 import { AddTypeComponent } from './add-type/add-type.component';
 import { AddGroupComponent } from './add-group/add-group.component';
 import { FormsModule } from '@angular/forms';
+import { ViewTypeComponent } from './view-type/view-type.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [FeaturesComponent, AddTypeComponent, AddGroupComponent]
+  declarations: [FeaturesComponent, AddTypeComponent, AddGroupComponent, ViewTypeComponent]
 })
 export class FeaturesModule { }

@@ -29,7 +29,7 @@
                   <label for="floatingInput" class="label" style="margin-left: 0.4em">Feature Type Code</label>
               </div>
 
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3" *ngIf="data != null">
                 <select class="form-select form-select-sm mb-3"name="countryID"  aria-label=".form-select-sm example" [(ngModel)]="featureType.featureGroupID" required>
                     <option value="{{featureGroup.id}}" *ngFor="let featureGroup of featureGroups">{{featureGroup.name}}</option>
                 </select>
@@ -45,10 +45,10 @@
             </div>
 <hr>
               <div class="mb-3" *ngIf="data == null">
-                <button class="btn btn-outline-primary" (click)="Save()" style="float: right">Save <i class="fa fa-save"></i></button>
+                <button class="btn btn-outline-primary" (click)="Save()" style="float: right" [disabled]="isProcessing">Save <i class="fa fa-save"></i></button>
               </div>
               <div class="mb-3" *ngIf="data != null">
-                <button class="btn btn-outline-primary" (click)="Edit()" style="float: right">Modify <i class="fa fa-save"></i></button>
+                <button class="btn btn-outline-primary" (click)="Edit()" style="float: right" [disabled]="isProcessing">Modify <i class="fa fa-save"></i></button>
               </div>
         </div>
 
