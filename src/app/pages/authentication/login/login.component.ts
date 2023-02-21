@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("ClientSystem", JSON.stringify(response.data.clientSystem));
 
           ModelClass.CheckLoggedIn();
-          //To Do: use localStorage
+          //To Do: use localStorage -- Impt
           //localStorage.setItem("User", JSON.stringify(response.data));
 
           Notifier.Notify(response.message, "success", 2000);
