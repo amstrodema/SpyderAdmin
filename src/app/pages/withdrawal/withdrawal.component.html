@@ -1,3 +1,6 @@
+<p>
+  withdrawal works!
+</p>
      <!-- Sale & Revenue Start -->
      <div class="container-fluid pt-4 px-4">
       <div class="row g-4">
@@ -70,35 +73,39 @@
   <div class="container-fluid pt-4 px-4">
       <div class="bg-secondary text-center rounded p-4">
           <div class="d-flex align-items-center justify-content-between mb-4">
-              <h6 class="mb-0">Payments</h6>
-              <a href="">Show All</a>
+              <h6 class="mb-0">Withdrawal</h6>
+              <a (click)="PrintPayOutput()">Export To PDF</a>
           </div>
           <div class="table-responsive">
               <table class="table text-start align-middle table-bordered table-hover mb-0">
                   <thead>
+                    <tr>
+                      <th colspan="7">
+                        <span class="btn btn-sm btn-outline-warning" (click)="GetWithdrawal(0)">All</span>&nbsp;&nbsp;
+                        <span class="btn btn-sm btn-success" (click)="GetWithdrawal(5)">Paid</span>&nbsp;&nbsp;
+                        <span class="btn btn-sm btn-success" (click)="GetWithdrawal(1)">Pending</span>&nbsp;&nbsp;
+                        <span class="btn btn-sm btn-outline-warning" (click)="PayOut()">Payout</span>&nbsp;&nbsp;
+                      </th>
+                    </tr>
                       <tr class="text-white">
                           <th scope="col">S/N</th>
-                          <th scope="col">Reference</th>
-                          <th scope="col">Transaction</th>
-                          <th scope="col">Trans</th>
+                          <th scope="col" class="no-wrap">Ref Code</th>
+                          <th scope="col" class="no-wrap">Amount (₦)</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Message</th>
-                          <th scope="col">Trxref</th>
-                          <th scope="col" class="no-wrap">Payment For</th>
-                          <th scope="col">Amount</th>
+                          <th scope="col" class="no-wrap">User Status</th>
+                          <th scope="col" class="no-wrap">Date Requested</th>
+                          <th scope="col" class="no-wrap">Date Paid</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let payment of payments; let i=index">
+                      <tr *ngFor="let withdrawal of withdrawals; let i=index">
                          <td>{{i+1}}</td>
-                         <td>{{payment.reference}}</td>
-                         <td>{{payment.transaction}}</td>
-                         <td>{{payment.trans}}</td>
-                         <td>{{payment.status}}</td>
-                         <td>{{payment.message}}</td>
-                         <td>{{payment.trxRef}}</td>
-                         <td>{{payment.amount}}</td>
-                         <td class="no-wrap">{{payment.dateCreated}}</td>
+                         <td>{{withdrawal.refCode}}</td>
+                         <td>{{withdrawal.amount}}</td>
+                         <td>{{withdrawal.status}}</td>
+                         <td><span class="btn btn-sm {{withdrawal.userStatus}}">&nbsp;&nbsp;</span></td>
+                         <td>{{withdrawal.dateRequested}}</td>
+                         <td>{{withdrawal.datePaid}}</td>
                       </tr>
                   </tbody>
               </table>

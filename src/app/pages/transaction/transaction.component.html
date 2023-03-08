@@ -15,7 +15,7 @@
                     <th>Confirmed</th>
                     <th>Amount</th>
                     <th>Currency</th>
-                    <th class="bg-primary text-white no-wrap">Official</th>
+                    <th class="no-wrap">Official</th>
                     <th>Date</th>
                 </tr>
               </thead>
@@ -30,7 +30,7 @@
                 <td>{{transaction.isConfirmed}}</td>
                 <td>{{transaction.amount}}</td>
                 <td>{{transaction.transactionCurrency}}</td>
-                <td class="bg-primary text-white">{{transaction.isOfficial}}</td>
+                <td>{{transaction.isOfficial}}</td>
                 <td class="no-wrap">{{transaction.dateCreated | date}}</td>
                 </tr>
               </tbody>

@@ -12,6 +12,7 @@ import { PetitionComponent } from 'src/app/pages/moderator/petition/petition.com
 import { FeaturesComponent } from 'src/app/pages/setup/features/features.component';
 import { TransactionComponent } from 'src/app/pages/transaction/transaction.component';
 import { ParamzComponent } from 'src/app/pages/setup/paramz/paramz.component';
+import { WithdrawalComponent } from 'src/app/pages/withdrawal/withdrawal.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: '',       component: DashboardComponent },
@@ -27,4 +28,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'hall',       component: HallComponent },
   { path: 'feature',       component: FeaturesComponent },
   { path: 'params',       component: ParamzComponent },
+  { path: 'withdrawal',       component: WithdrawalComponent }
  ];

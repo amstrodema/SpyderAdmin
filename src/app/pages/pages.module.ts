@@ -12,6 +12,7 @@ import { InboxModule } from './inbox/inbox.module';
 import { ReportsModule } from './reports/reports.module';
 import { TaskModule } from './task/task.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { WithdrawalModule } from './withdrawal/withdrawal.module';
 
 @NgModule({
   imports: [
@@ -26,8 +27,8 @@ import { TransactionModule } from './transaction/transaction.module';
     InboxModule,
     ReportsModule,
     TaskModule,
-    TransactionModule
-  ],
-  declarations: [PagesComponent],
+    TransactionModule,
+    WithdrawalModule
+  ]
 })
 export class PagesModule { }

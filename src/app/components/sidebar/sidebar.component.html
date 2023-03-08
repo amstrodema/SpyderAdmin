@@ -19,13 +19,14 @@
           </div>
           <div class="navbar-nav w-100">
             <a [routerLink]="['/admin']" routerLinkActive="router-link-active" class="nav-item nav-link {{dashboard}}" (click)="SetActive('dashboard')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a   [routerLink]="['/admin/account']" routerLinkActive="router-link-active" class="nav-item nav-link  {{account}}" (click)="SetActive('account')"><i class="fa fa-chart-bar me-2"></i>Account</a>
-            <a   [routerLink]="['/admin/transaction']" routerLinkActive="router-link-active" class="nav-item nav-link {{transaction}}" (click)="SetActive('transaction')"><i class="fa fa-chart-bar me-2"></i>Transaction</a>
+            <a   [routerLink]="['/admin/account']" routerLinkActive="router-link-active"  *ngIf="user.accessLevel > 5" class="nav-item nav-link  {{account}}" (click)="SetActive('account')"><i class="fa fa-chart-bar me-2"></i>Account</a>
+            <a   [routerLink]="['/admin/transaction']" routerLinkActive="router-link-active" *ngIf="user.accessLevel > 4" class="nav-item nav-link {{transaction}}" (click)="SetActive('transaction')"><i class="fa fa-chart-bar me-2"></i>Transaction</a>
+            <a   [routerLink]="['/admin/withdrawal']" routerLinkActive="router-link-active" *ngIf="user.accessLevel > 4" class="nav-item nav-link {{withdrawal}}" (click)="SetActive('withdrawal')"><i class="fa fa-chart-bar me-2"></i>Withdrawal</a>
             <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-inbox me-2"></i>Messaging</a>
               <div class="dropdown-menu bg-transparent border-0">
-                  <a  [routerLink]="['/admin/broadcast']" routerLinkActive="router-link-active" class="dropdown-item">Broadcast</a>
-                  <a  [routerLink]="['/admin/complaint']" routerLinkActive="router-link-active" class="dropdown-item">Complaint</a>
+                  <a  [routerLink]="['/admin/broadcast']" routerLinkActive="router-link-active" *ngIf="user.accessLevel > 3" class="dropdown-item">Broadcast</a>
+                  <a  [routerLink]="['/admin/complaint']" routerLinkActive="router-link-active" *ngIf="user.accessLevel > 3" class="dropdown-item">Complaint</a>
                   <a  [routerLink]="['/admin/inbox']" routerLinkActive="router-link-active" class="dropdown-item">Inbox</a>
               </div>
           </div>
@@ -45,7 +46,7 @@
               </div>
           </div>
             <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"  *ngIf="user.accessLevel > 4"></i>Reports</a>
               <div class="dropdown-menu bg-transparent border-0">
                   <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">SPY</a>
                   <a  [routerLink]="['/admin/petition']" routerLinkActive="router-link-active" class="dropdown-item">Activation</a>
@@ -64,7 +65,7 @@
               </div>
           </div>
 
-          <div class="nav-item dropdown">
+          <div class="nav-item dropdown" *ngIf="user.accessLevel > 3">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-pen me-2"></i>Setup</a>
             <div class="dropdown-menu bg-transparent border-0">
                 <a  [routerLink]="['/admin/country']" routerLinkActive="router-link-active" class="dropdown-item">Country</a>

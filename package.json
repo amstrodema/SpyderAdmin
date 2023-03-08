@@ -1,11 +1,11 @@
 {
-  "name": "argon-dashboard-angular",
+  "name": "spyder-admin",
   "version": "1.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:dev": "ng build --watch --deploy-url /admin/ --base-href /admin/",
+    "build:dev": "ng build --watch --deploy-url / --base-href /",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -30,6 +30,8 @@
     "core-js": "3.6.5",
     "flutterwave-angular-v3": "^1.2.1",
     "jquery": "^3.6.3",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
     "jwt-decode": "^3.0.0",
     "ngx-clipboard": "13.0.1",
     "ngx-countdown": "^12.0.1",
@@ -37,6 +39,7 @@
     "nouislider": "14.6.2",
     "rxjs": "6.6.3",
     "systeminformation": "^5.12.6",
+    "xlsx": "^0.18.5",
     "zone.js": "^0.10.3"
   },
   "devDependencies": {

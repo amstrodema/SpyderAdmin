@@ -12,8 +12,11 @@ export class ModelClass {
 static baseUrl:string = "http://localhost:38519/";
 static baseUrl2:string = "http://localhost:4200/";
 
-// static baseUrl:string = "https://api.logit.com.ng/";
-// static baseUrl2:string = "https://spyder.logit.com.ng";
+// static baseUrl:string = "/spyder/";
+// static baseUrl2:string = ":204";
+
+// static baseUrl:string = "http://oluyinka-001-site1.atempurl.com/";
+// static baseUrl2:string = "http://darlos-001-site1.gtempurl.com";
 static isLogged:boolean = false;
 static user:Registration;
 static prevRoute:string;

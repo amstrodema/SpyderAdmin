@@ -15,6 +15,7 @@ export class Registration {
   password:string;
   city:string;
   isActivated: boolean;
+  accessLevel: number;
 
   name:string;
   refererCode:string;

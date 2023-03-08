@@ -2,70 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ModelClass } from "src/app/models/modelClass";
 import { Location } from "@angular/common";
-
-declare function friendlist(): any;
-declare function back_chatBox(): any;
-declare function displayChatbox(): any;
-declare interface RouteInfo {
-  path: string;
-  title: string;
-  icon: string;
-  class: string;
-  route: string;
-}
-// { path: '/search/app/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-export const ROUTES: RouteInfo[] = [
-  {
-    path: "/search/hall-of-legends",
-    title: "Legends",
-    icon: "",
-    class: "",
-    route: "legends"
-  },
-  {
-    path: "/search/hall-of-fame",
-    title: "Hall of Fame",
-    icon: "",
-    class: "",
-    route: "hall-of-fame"
-  },
-  {
-    path: "/search/hall-of-shame",
-    title: "Hall of Shame",
-    icon: "",
-    class: "",
-    route: "hall-of-shame"
-  },
-  {
-    path: "/search/hall-of-fallen-heros",
-    title: "Fallen Heros",
-    icon: "",
-    class: "",
-    route: "fallen-heros"
-  },
-  {
-    path: "/search/hall-of-heros",
-    title: "Heros",
-    icon: "",
-    class: "",
-    route: "heros"
-  },
-  {
-    path: "/search/death-register",
-    title: "Death Register",
-    icon: "",
-    class: "",
-    route: "death-register"
-  },
-  {
-    path: "/search/marriage-register",
-    title: "Marriage Register",
-    icon: "",
-    class: "",
-    route: "marriage-register"
-  }
-];
-
+import { Registration } from "src/app/models/registration";
 @Component({
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
@@ -74,7 +11,8 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   dashboard = "active";
   account;
-  transaction;
+ transaction;
+  withdrawal;
   messaging;
   moderator;
   reports;
@@ -83,6 +21,7 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
   isLogged = false;
+  user:Registration = ModelClass.user;
 
   constructor(private router: Router) {}
 
@@ -122,6 +61,9 @@ export class SidebarComponent implements OnInit {
       case  "task":
       this.task = "active"
         break;
+      case  "withdrawal":
+      this.withdrawal = "active"
+        break;
 
       default:
         break;
@@ -130,24 +72,8 @@ export class SidebarComponent implements OnInit {
 
   CLearActive() {
     this.account = this.transaction = this.messaging = this.dashboard = this.moderator
-     = this.reports = this.setup = this.task ="";
+     = this.reports = this.setup = this.task = this.withdrawal ="";
   }
 
-  GetTitle(location: Location) {
-    var path = location.prepareExternalUrl(location.path());
-    try {
-      return ROUTES.find(x => x.path == path).title;
-    } catch (e) {
-      return "";
-    }
-  }
 
-  GetRoute(location: Location) {
-    var path = location.prepareExternalUrl(location.path());
-    try {
-      return ROUTES.find(x => x.path == path).route;
-    } catch (e) {
-      return "";
-    }
-  }
 }
